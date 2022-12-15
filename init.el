@@ -26,3 +26,10 @@
 ;; company
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
+
+(use-package lsp-mode
+  :ensure t
+  :commands (lsp lsp-deferred)
+  :hook (js-mode . lsp-deferred))
+
+(add-hook 'js-mode-hook '(lambda () (setq js-indent-level 2)))
